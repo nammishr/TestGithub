@@ -9,9 +9,12 @@ jobs:
             - name: Message
               uses: actions/checkout@v4
 
-            - name: List files
-              run: ls
+            - name: List and Read files
+              run: |
+                   echo "My first github actions file"
+                   ls -lart
+                   cat README.md
 
-            - name : Files contents
-              run: cat README.md
+            - name : Third Party Library
+              run: cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.xt
             
