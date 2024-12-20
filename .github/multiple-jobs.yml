@@ -1,4 +1,4 @@
-name: Multiple jobs execution
+name: Multiple jobs execution workflow
 
 on: push
 
