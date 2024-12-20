@@ -1,0 +1,31 @@
+name: Work with env variables
+
+on: push
+
+env:
+    CONTAINER_REGISTRY: docker.io
+    DOCKER_USERNAME: namrata
+    IMAGE_NAME: nginx       
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Docker Build
+          run: echo docker build -t ${{env.CONTAINER_REGISTRY}}/${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest    
+
+        - name: Docker Login 
+          env: 
+            DOCKER_PASSWORD: abcd123
+          run: echo docker login --username= --password=
+
+        - name: Docker Publish
+          run: echo docker push -t ${{env.CONTAINER_REGISTRY}}/${{env.DOCKER_USERNAME}}/${{env.IMAGE_NAME}}:latest
+
+
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+        - name: Deploy docker
+          run: echo docker run 8080
+
