@@ -1,0 +1,25 @@
+name: Test Workflow dispatch
+
+on:
+    workflow_dispatch:
+      inputs:
+        logLevel:
+          description: 'Log level'
+          required: true
+          default: 'warning'
+          type: choice
+          options:
+          - info
+          - warning
+          - debug
+
+
+jobs:
+    test_my_inputs:
+     runs-on: ubuntu   
+     steps:
+        - run: |
+            echo "Workflow dispact is success" 
+        
+          
+               
