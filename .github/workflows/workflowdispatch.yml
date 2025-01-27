@@ -12,6 +12,15 @@ on:
           - info
           - warning
           - debug
+        type:
+          description: 'Type level'
+          required: true
+          default: 'warning'
+          type: choice
+          options:
+          - abc
+          - fdg
+          - tis 
 
 
 jobs:
@@ -19,7 +28,7 @@ jobs:
      runs-on: ubuntu   
      steps:
         - run: |
-            echo "Workflow dispact is success" 
+            echo "Workflow dispact is pass" 
         
           
                
