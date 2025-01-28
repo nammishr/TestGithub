@@ -10,15 +10,17 @@ jobs:
         - name: Trigger Repo 2 Events
           uses: peter-evans/repository-dispatch@v2        
           with:
+            token: ${{ secrets.REPO2_TOKEN }}
             repository: nammishr/GithubRepo2
             event-type: process-event
             client-payload: '{"data": "Event 1", "timestamp": "${{ github.event.head_commit.timestamp }}"}'
-            token: ${{ secrets.REPO2_TOKEN }}
+            
 
         - name: Trigger another event
           uses: peter-evans/repository-dispatch@v2
           with:
+            token: ${{ secrets.REPO2_TOKEN }}
             repository: nammishr/GithubRepo2
             event-type: process-event
-            client-payload: '{"data": "Event 2", "timestamp": "${{ github.head_commit.timestamp }}"}'
-            token: ${{ secrets.REPO2_TOKEN }}
+            client-payload: '{"data": "Event 2", "timestamp": "${{ github.event.head_commit.timestamp }}"}'
+            
