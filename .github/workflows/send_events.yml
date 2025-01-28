@@ -13,7 +13,7 @@ jobs:
             repository: nammishr/GithubRepo2
             event-type: process-event
             client-payload: '{"data": "Event 1", "timestamp": "${{ github.event.head_commit.timestamp }}"}'
-            token: Welcome@1
+            token: ${{ secrets.REPO2_TOKEN }}
 
         - name: Trigger another event
           uses: peter-evans/repository-dispatch@v2
@@ -21,4 +21,4 @@ jobs:
             repository: nammishr/GithubRepo2
             event-type: process-event
             client-payload: '{"data": "Event 2", "timestamp": "${{ github.head_commit.timestamp }}"}'
-            token: Welcome@1
+            token: ${{ secrets.REPO2_TOKEN }}
