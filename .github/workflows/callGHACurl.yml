@@ -1,0 +1,12 @@
+name: Call GHA API
+
+on: push
+
+jobs:
+    test_curl:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Call GHA Curl
+        run: |
+          curl -X POST "http://localhost:8080/api/requests?repoName=gha-1-service" \
+          -H "Content-Type: application/json
